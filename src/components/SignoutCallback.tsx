@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import { userManager } from "../utils/authentication";
 
 const SignoutCallback = () => {
-  
-  const history = useHistory();
 
-  useEffect(() => {
-    userManager.signoutCallback().then(() => history.go(-2));
-  }, [history]);
+    const navigate = useNavigate();
 
-  return <h1>Sign out callback</h1>;
+    useEffect(() => {
+        userManager.signoutCallback().then(() => navigate("/"));
+    }, [navigate]);
+
+    return <h1>Sign out callback</h1>;
 };
 
 export default SignoutCallback;

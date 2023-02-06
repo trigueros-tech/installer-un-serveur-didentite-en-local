@@ -1,11 +1,11 @@
-import {UserManager, UserManagerSettings} from "oidc-client";
+import {UserManager, UserManagerSettings} from "oidc-client-ts";
 
-var settings: UserManagerSettings = {
+var settings = {
     authority: "http://localhost:8080/auth/realms/master",
-    redirect_uri: "http://localhost:3000/auth/signin",
-    post_logout_redirect_uri: "http://localhost:3000/auth/signout",
-    client_id: "react-application",
+    redirect_uri: "http://localhost:5173/auth/signin",
+    post_logout_redirect_uri: "http://localhost:5173/auth/signout",
+    client_id: "my-client",
     response_type: "code"
-}
+} satisfies UserManagerSettings
 
 export const userManager = new UserManager(settings);
